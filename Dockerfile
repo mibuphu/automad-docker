@@ -15,6 +15,7 @@ RUN apt-get update \
     php7.0-curl \
     php7.0-zip \
     ca-certificates \
+    supervisor \
     && cd /tmp \
     && mkdir -p /var/www/html \
     && mkdir -p /var/www/html/automad \
@@ -26,14 +27,16 @@ RUN apt-get update \
     && mkdir -p /etc/nginx/sites-available \
     && mkdir -p /etc/nginx/sites-enabled \ 
     && rm /etc/nginx/nginx.conf \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists
 
 COPY config/php.ini /etc/php/7.0/fpm/php.ini    
 COPY config/automad.conf /etc/nginx/sites-available/automad.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
+
 RUN  ln -s /etc/nginx/sites-available/automad.conf /etc/nginx/sites-enabled/automad.conf \
     && mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.source \
-    && apt-get remove -y wget \
+    && apt-get purge -y wget \
     ca-certificates
 
 EXPOSE 80
