@@ -1,0 +1,110 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+[data-am-tree] {
+	
+	.am-sidebar & {
+		padding: 0 @utility-container-padding-horizontal @am-body-padding-bottom @utility-container-padding-horizontal;		
+	}
+	
+	.uk-form-stacked & {
+		
+		padding: 3px 12px;
+		background-color: @form-background;
+		border-radius: @am-radius;
+		
+		& li.uk-active > a,
+		& li a:not(.am-tree-toggle):hover {
+			color: @button-success-color;
+			background-color: @button-success-background;
+		}
+		
+	}
+	
+	& > ul {
+		margin-left: -@nav-padding-horizontal;
+		margin-right: -@nav-padding-horizontal;
+	}
+
+	& ul li {
+		position: relative;	
+	}
+	
+	& a:not(.am-tree-toggle) {
+		width: auto;
+	}
+	
+	& .uk-active > a .uk-icon-folder:before {
+		content: '\f07c';
+	}
+	
+}
+
+.am-tree-toggle {
+	
+	position: absolute !important;
+	z-index: 2;
+	left: -18px;
+	padding: 5px !important;
+	line-height: @button-mini-line-height;
+    	font-size: @button-mini-font-size;
+	
+	&,
+	&:focus,
+	&:hover,
+	&:active {
+		color: @nav-side-color !important;
+		background-color: transparent !important;
+	}
+	
+}
+
+[class*='am-tree-icon-'] {
+	&:extend([class*='uk-icon-'] all);
+	font-size: 12px;
+	color: @am-text;
+}
+
+.am-tree-icon {
+	
+	&-open {
+		&:extend(.uk-icon-plus-circle all);
+	}
+	
+	&-close {
+		&:extend(.uk-icon-minus-circle all);
+	}
+	
+}

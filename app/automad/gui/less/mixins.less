@@ -1,0 +1,64 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+.shadow() {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 1px 10px rgba(0,0,0,0.15);	
+}
+
+.fade-out(@duration: 0.3s) {
+	visibility: hidden;
+  	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	.transition(visibility 0s linear @duration, opacity @duration linear, max-height 0s linear @duration;);
+}
+
+.fade-in(@duration: 0.3s) {
+	visibility: visible;
+  	opacity: 1;
+	max-height: 5000px;
+	overflow: visible;
+	.transition(visibility 0s linear 0s, opacity @duration linear, max-height 0s linear 0s;);
+}
+
+.smooth-fonts() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.transition(@parameters) {
+	-webkit-transition: @parameters;
+	transition: @parameters;
+}

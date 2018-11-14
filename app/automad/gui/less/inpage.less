@@ -1,0 +1,113 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2017-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+.am-inpage {
+	 
+ 	&:extend(html all);
+	background: transparent;
+	line-height: inherit;
+	
+	body > & {
+		position: relative;	
+		z-index: 9000;
+	}
+	
+	&-menubar {
+		
+		display: inline-block;
+		position: fixed;
+		top: ~"calc(100% - 55px)";
+		left: ~"calc(50% - 150px)";
+		width: 300px;
+		text-align: center;
+		
+		& .uk-button-group {
+			
+			border-radius: @am-radius;
+			overflow: hidden;
+			.shadow;	
+			
+			& > a {
+				margin-left: 0;
+			}
+			
+		}
+		
+	}
+	
+	&-menu-button {
+		
+		&:extend(.uk-button all, .uk-button-large all);
+		line-height: 40px;
+		border-radius: 0;
+		
+		&.am-drag-handle {
+			
+			&,
+			&:hover,
+			&:active {
+				color: #D2D2D2;
+				cursor: move;
+			}
+			
+		}
+		
+	}
+	
+	& > &-edit-button {
+		&:extend(.uk-button all, .uk-button-small all, .uk-button-success all);
+		border: none !important;
+		margin-bottom: 2px;
+		vertical-align: text-bottom;
+		.shadow;
+	}
+	
+	& .uk-form-stacked .uk-form-label {
+		margin-top: 0;
+	}
+	
+	& :-ms-input-placeholder { 
+		color: @form-placeholder-color !important; 
+	}
+	
+	& ::-moz-placeholder { 
+		color: @form-placeholder-color !important; 
+	}
+	
+	& ::-webkit-input-placeholder { 
+		color: @form-placeholder-color !important; 
+	}
+	
+ }

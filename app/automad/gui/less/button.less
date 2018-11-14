@@ -1,0 +1,134 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+@am-icon-button-margin-left: 		10px;
+
+@button-color:						@am-text;
+@button-background:					#F2F2F2;
+@button-hover-color:				@button-color;
+@button-hover-background:			darken(@button-background, 3%);
+@button-active-color:				@button-hover-color;
+@button-active-background:			@button-hover-background;
+
+@button-primary-color:				#FFFFFF;
+@button-primary-background:			@am-primary;
+@button-primary-hover-color:		#FFFFFF;
+@button-primary-hover-background:	lighten(@button-primary-background, 5%);
+@button-primary-active-color:		#FFFFFF;
+@button-primary-active-background:	@button-primary-hover-background;
+
+@button-success-color:				#FFFFFF;
+@button-success-background:			@am-success;
+@button-success-hover-color: 		#FFFFFF;
+@button-success-hover-background: 	darken(@button-success-background, 5%);
+@button-success-active-color: 		#FFFFFF;
+@button-success-active-background:	@button-success-hover-background;
+
+@button-danger-color:				#FFFFFF;
+@button-danger-background:			@am-danger;
+@button-danger-hover-color: 		#FFFFFF;
+@button-danger-hover-background:	darken(@button-danger-background, 5%);
+@button-danger-active-color:		#FFFFFF;
+@button-danger-active-background:	@button-danger-hover-background;
+
+@button-disabled-color:				#CFCFCF;
+@button-disabled-background:		@button-background;
+
+@button-font-size:					14px;
+@button-mini-font-size: 			11px;
+@button-small-font-size: 			12px;
+@button-large-font-size: 			16px;
+
+@button-height:						30px;
+@button-mini-height:				20px;
+@button-small-height:				24px;
+@button-large-height:				36px;
+
+@button-line-height: 				@button-height;
+@button-mini-line-height: 			@button-mini-height;
+@button-small-line-height: 			@button-small-height;
+@button-large-line-height: 			@button-large-height;
+
+@button-padding-horizontal:			10px;
+@button-mini-padding-horizontal:	6px;
+@button-small-padding-horizontal:	8px;
+@button-large-padding-horizontal:	12px;
+
+
+.hook-button() {
+	
+	box-sizing: border-box;
+	position: relative;
+	border-radius: @am-radius;
+	
+	& + & {
+		margin-left: 5px;
+	}
+	
+	&.uk-button-mini,
+	&.uk-button-small {
+		border-radius: @am-radius-small;
+	}
+	
+}
+
+.hook-button-success() {
+	
+	& .uk-badge {
+		color: @button-success-background;
+		background-color: @button-success-color;
+	}
+	
+}
+
+.am-icon-buttons {
+	
+	margin-left: -@am-icon-button-margin-left;
+	
+	& > * {
+		display: inline-block;
+	}
+	
+	& .uk-button {
+		min-width: @button-height;
+		max-width: @button-height;
+		text-align: center;
+		margin-left: @am-icon-button-margin-left;
+		padding-left: 0;
+		padding-right: 0;
+		border-radius: @button-height / 2;
+	}
+	
+}

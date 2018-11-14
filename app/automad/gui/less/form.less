@@ -1,0 +1,131 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+@form-height:				@button-large-height;
+@form-large-height: 		44px;
+@form-padding:				4px 10px;
+@form-large-padding: 		6px 14px;
+@form-border:				@am-border-color;
+@form-border-width:			@am-border-width;
+@form-color:				@am-text;
+@form-background:       	#F7F7F7;
+
+@form-gutter: 				0;
+
+@form-focus-border:			@am-success;
+@form-focus-background:		@form-background;
+@form-focus-color:			@form-color;
+
+@form-disabled-border:      transparent;
+@form-disabled-background:  @panel-box-background;
+@form-disabled-color:		@panel-box-color;
+
+@form-stacked-font-weight:	400;
+@form-stacked-margin-bottom:4px;
+
+@form-placeholder-color:	@am-muted;
+
+@form-icon-color:			mix(@am-muted, @am-border-color);
+
+.hook-form() {
+	box-sizing: border-box;
+	min-height: @form-height;
+	line-height: @base-body-line-height;
+	border-radius: @am-radius;
+}
+
+.hook-form-disabled() {
+	// Fix iOS disabled input styles.
+	opacity: 1;
+	-webkit-text-fill-color: @form-disabled-color;
+}
+
+.hook-form-stacked-label() {
+	
+	display: inline-block;
+	margin-top: @utility-margin;
+	margin-bottom: @form-stacked-margin-bottom;
+	padding: 4px 6px;
+	vertical-align: top;
+	font-size: @text-small-font-size;
+	font-weight: @form-stacked-font-weight;
+	line-height: @text-small-font-size;
+	color: @am-muted;
+	background-color: @button-background;
+	border-radius: @am-radius-small;
+	
+	&.am-form-changed:after {
+		content: '\f111';
+		&:extend([class*='uk-icon-']);
+		padding-left: 4px;
+		color: @am-success;
+	} 
+	
+}
+
+// All textareas but not the HTML editors.
+.uk-form textarea:not([data-uk-htmleditor]) {
+	overflow: hidden;
+	resize: none;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	// Disable height transitions. 
+	.transition(height 0s, color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;);
+}
+
+.uk-form-controls {
+	
+	& + & {
+		margin-top: 4px;
+	}
+	
+}
+
+.uk-form-icon {
+	
+	& > [class*="uk-icon-"] {
+		left: 4px;
+	}
+	
+	&:not(.uk-form-icon-flip) > input {
+		padding-left: (@form-icon-width + 4px) !important;	
+	}
+	
+}
+
+.uk-modal textarea {
+	max-height: none !important;
+}
+

@@ -1,0 +1,82 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+@accordion-title-margin-bottom:         0;
+@accordion-title-padding-vertical:      5px;
+@accordion-title-padding-horizontal:    0;
+@accordion-title-font-size:             1rem;
+@accordion-title-line-height:           @base-body-line-height;
+@accordion-title-background:            @am-bg;
+
+@accordion-content-padding-horizontal:  0;
+@accordion-content-padding-bottom:      @utility-margin-small;
+ 
+
+.hook-accordion() {
+    & [data-wrapper] {
+        margin: 0 -10px;
+        padding: 0 10px;
+    }
+}
+ 
+.hook-accordion-title() {
+	
+	position: relative;
+	margin-top: @utility-margin;
+	color: @am-text;
+	font-weight: @am-nav-font-weight;
+	line-height: 1.6;
+    
+	&:before {
+		content: '\f055';
+		position: relative;
+		&:extend([class*='uk-icon-'] all);
+		padding-right: 5px;
+	}
+	
+	&.uk-active:before {
+		content: '\f056';
+	}
+
+}
+ 
+.hook-accordion-content() {
+	
+	// Hide content before accordion is initialized to avoid flicker.
+	:not([data-wrapper]) > & {
+		display: none;
+	}
+	
+}

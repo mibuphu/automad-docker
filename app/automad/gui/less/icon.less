@@ -1,0 +1,68 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+@icon-font-path:				"../../../lib/vendor/uikit/uikit/src/fonts";
+
+@icon-button-width:             26px;
+@icon-button-font-size:			14px;
+@icon-button-color:				@button-color;
+@icon-button-background:        @button-background;
+@icon-button-hover-color:		@button-hover-color;
+@icon-button-hover-background:	@button-hover-background;
+@icon-button-active-color:		@button-active-color;
+@icon-button-active-background:	@button-active-background;
+
+
+.hook-icon-button() {
+	cursor: pointer;
+}
+
+@font-face {
+	font-family: 'Automad';
+	src:	url('../fonts/automad-logo.woff') format('woff'),
+			url('../fonts/automad-logo.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.uk-icon-automad {
+	
+	font-family: 'Automad';
+	
+	&:before {
+		content: '\ea01';
+	}
+	
+}

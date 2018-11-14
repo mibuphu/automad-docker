@@ -1,0 +1,128 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2017-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+@am-switcher-padding-vertical: 	7px;
+
+
+.am-switcher {
+	
+	background-color: @am-bg;
+	padding: @am-switcher-padding-vertical 0;
+	// Cover overlapping content (like selected panels) below with shadow when switcher is sticky.
+	box-shadow: 20px 0 0 @am-bg, -20px 0 0 @am-bg;
+	
+	&.uk-active:after {
+		
+		content: '';
+		position: absolute;
+		bottom: -1px;
+		width: 100vw;
+		margin-left: -@utility-container-padding-horizontal;
+		border-bottom: @am-hairline;
+		
+		@media (min-width: @utility-container-max-width) {
+			margin-left: ~"calc(((100vw - @{utility-container-max-width}) / -2) - @{utility-container-padding-horizontal})";
+		}
+		
+		@media (min-width: @breakpoint-large) {
+			width: ~"calc(100vw - @{am-sidebar-width})";
+			margin-left: ~"calc(((100vw - @{utility-container-max-width}) / -2) + @{am-sidebar-width} - @{utility-container-padding-horizontal})";
+		}
+		
+		@media (min-width: @breakpoint-large) and (max-width: ((2 * @am-sidebar-width) + @utility-container-max-width)) {
+			width: ~"calc(100vw - @{am-sidebar-width})";
+			margin-left: -@utility-container-padding-horizontal;
+		}
+		
+	}
+	
+	&-buttons {
+		
+		border-radius: @am-radius;
+		background-color: @button-background;
+		
+		& > div {
+			display: inline-block;
+		}
+		
+		& .uk-button {
+			
+			margin: 0;
+			border-radius: 0;
+			
+			&[data-am-tab] {
+				
+				&:hover,
+				&:active,
+				&.uk-active {
+					
+					color: @button-primary-color;
+					background-color: @button-primary-background;
+					
+					& .uk-badge {
+						color: @button-primary-background;
+						background-color: @button-primary-color;
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		& > div:first-child > button:first-child {
+			border-top-left-radius: @am-radius;
+			border-bottom-left-radius: @am-radius;
+		}
+		
+	}
+	
+	& [data-uk-dropdown] {
+		
+		position: relative;
+		float: right;
+		
+		& .uk-button {
+			border-top-right-radius: @am-radius;
+			border-bottom-right-radius: @am-radius;
+		}	
+		
+	}
+	
+}
+
+.uk-switcher {	
+	margin-top: @utility-margin-large - @am-switcher-padding-vertical;
+}

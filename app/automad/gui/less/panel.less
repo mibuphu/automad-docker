@@ -1,0 +1,141 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2016-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+@panel-title-margin-bottom:     0;
+@panel-title-font-size:         inherit;
+@panel-title-line-height:       inherit;
+@panel-title-font-weight:		inherit;
+
+@panel-box-padding:				8px;
+@panel-box-color:				@am-text;
+@panel-box-title-color:			@am-text;
+@panel-box-background:			#F6F6F6;
+@panel-box-badge-top:          	12px;
+@panel-box-badge-right:			9px;
+@panel-teaser-margin-bottom:	0;
+
+.hook-panel-box() {
+	
+	border-radius: @am-radius;
+	
+	.uk-grid & {
+		margin: 0;
+	}
+
+	&.uk-active {
+		box-shadow: 0 0 0 3px @am-success;
+	}
+
+	& .uk-panel-teaser {
+		overflow: hidden;
+		border: 3px solid @panel-box-background;
+		border-radius: @am-radius;
+	}
+	
+	& + & {
+		margin-top: 4px;
+	}
+	
+	& .uk-icon-button {
+		background-color: darken(@panel-box-background, 4%);
+	}
+	
+}
+
+.hook-panel-badge() {
+	
+	&.uk-badge {
+		color: @am-text;
+		background-color: darken(@panel-box-background, 4%);
+	}
+	
+}
+
+.hook-panel-title() {
+	margin: 0 -@panel-box-padding;
+	padding: @panel-box-padding;
+	padding-bottom: 5px;
+	overflow: hidden;
+	overflow-wrap: break-word;
+}
+
+.am-panel {
+	
+	&-icon {
+		
+		display: block;
+		position: relative;
+		height: 0;
+		// Keep icon responsive.
+		padding-top: 75%;
+		
+		& > * {
+			position: absolute;
+			display: block;
+			width: 100%;
+			top: 50%;
+			margin-top: -12px;
+			font-size: 24px;
+			font-weight: 300;
+			line-height: 24px;
+			color: @am-text;
+			text-align: center;
+		} 
+		
+	}
+
+	&-bottom {
+		
+		display: block;
+		height: 30px;
+		margin-top: @panel-box-padding;
+		
+		&-small {
+			height: 20px;
+		}
+		
+		& > * {
+			
+			position: absolute;
+			bottom: @panel-box-padding;
+			
+			&.am-panel-bottom-right {
+				right: @panel-box-padding;
+			}
+			
+		}
+		
+	}
+
+}

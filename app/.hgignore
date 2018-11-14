@@ -1,0 +1,17 @@
+syntax: glob
+cached*
+node_modules
+sitemap.xml
+cache/trash
+config/accounts.php
+uikit/docs
+uikit/tests
+uikit/themes
+uikit/vendor
+uikit/.npmignore
+uikit/.gitignore
+uikit/bower.json
+uikit/circle.yml
+uikit/index.html
+uikit/CONTRIBUTING.md
+uikit/CHANGELOG.md

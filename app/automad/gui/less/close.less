@@ -1,0 +1,68 @@
+/*
+ *	                  ....
+ *	                .:   '':.
+ *	                ::::     ':..
+ *	                ::.         ''..
+ *	     .:'.. ..':.:::'    . :.   '':.
+ *	    :.   ''     ''     '. ::::.. ..:
+ *	    ::::.        ..':.. .''':::::  .
+ *	    :::::::..    '..::::  :. ::::  :
+ *	    ::'':::::::.    ':::.'':.::::  :
+ *	    :..   ''::::::....':     ''::  :
+ *	    :::::.    ':::::   :     .. '' .
+ *	 .''::::::::... ':::.''   ..''  :.''''.
+ *	 :..:::'':::::  :::::...:''        :..:
+ *	 ::::::. '::::  ::::::::  ..::        .
+ *	 ::::::::.::::  ::::::::  :'':.::   .''
+ *	 ::: '::::::::.' '':::::  :.' '':  :
+ *	 :::   :::::::::..' ::::  ::...'   .
+ *	 :::  .::::::::::   ::::  ::::  .:'
+ *	  '::'  '':::::::   ::::  : ::  :
+ *	            '::::   ::::  :''  .:
+ *	             ::::   ::::    ..''
+ *	             :::: ..:::: .:''
+ *	               ''''  '''''
+ *	
+ *
+ *	AUTOMAD
+ *
+ *	Copyright (c) 2017-2018 by Marc Anton Dahmen
+ *	http://marcdahmen.de
+ *
+ *	Licensed under the MIT license.
+ */
+
+
+.uk-close {
+	
+	&,
+	&:hover {
+		color: inherit;
+	}
+	
+	&:after {
+		.smooth-fonts;
+	}
+	
+	.uk-modal-dialog > &,
+	.uk-modal-header > & {
+		
+		line-height: 16px;
+		font-size: 16px;
+		
+		&:after {
+			content: '\f057';
+		}
+		
+	}
+	
+	.uk-modal-dialog-blank > &:first-child {
+		top: @modal-dialog-padding;
+		right: @modal-dialog-padding;
+	}
+	
+	.uk-notify-message:hover > & {
+		color: inherit;
+	}
+		
+}
