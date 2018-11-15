@@ -1,23 +1,27 @@
-FROM nginx:1.15
+FROM nginx:1.15-alpine
 LABEL MAINTAINER="Minh Bui <mibuphu@gmail.com>"
 
 ENV version 1.0.3
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends wget \
-    php7.0-fpm \
-    php7.0-common \
-    php7.0-mbstring \
-    php7.0-xmlrpc \
-    php7.0-sqlite3 \
-    php7.0-soap \
-    php7.0-gd \
-    php7.0-xml \
-    php7.0-cli \
-    php7.0-curl \
-    php7.0-zip \
+RUN apk update \
+    && apk add --no-cache php7 \
+    php7-session \
+    php7-fpm \
+    php7-common \
+    php7-mbstring \
+    php7-xmlrpc \
+    php7-sqlite3 \
+    php7-soap \
+    php7-gd \
+    php7-xml \
+    php7-curl \
+    php7-zip \
+    php7-json \
+    wget \
     ca-certificates \
     supervisor \
+    tar \
+    bash \
     && cd /tmp \
     && mkdir -p /var/www/html \
     && mkdir -p /var/www/html/automad \
@@ -25,14 +29,12 @@ RUN apt-get update \
     && tar -xzf ${version}.tar.gz -C /var/www/html/automad --strip-components 1 \
     && rm ${version}.tar.gz \
     && chown -R nginx:nginx /var/www/html/automad \
-    && /bin/bash -c 'chmod -R 755 /var/www/html/automad/' \
+    && chmod -R 755 /var/www/html/automad/ \
     && mkdir -p /etc/nginx/sites-available \
-    && mkdir -p /etc/nginx/sites-enabled \ 
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists
+    && mkdir -p /etc/nginx/sites-enabled 
 
-COPY config/www.conf /etc/php/7.0/fpm/pool.d/www.conf
-COPY config/php.ini /etc/php/7.0/fpm/php.ini    
+COPY config/www.conf /etc/php7/php-fpm.d/www.conf
+COPY config/php.ini /etc/php7/php.ini    
 COPY config/automad.conf /etc/nginx/sites-available/automad.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
@@ -40,15 +42,17 @@ COPY config/accounts.php /var/www/html/automad/config
 
 RUN  ln -s /etc/nginx/sites-available/automad.conf /etc/nginx/sites-enabled/automad.conf \
     && mkdir -p /run/php \
-    && touch /run/php/php7.0-fpm.sock \
-    && touch /run/php/php7.0-fpm.pid \
+    && touch /run/php/php7-fpm.sock \
+    && touch /run/php/php7-fpm.pid \
     && mkdir -p /var/log/supervisor \
-    && apt-get purge -y wget \
-    ca-certificates
-    
+    && apk del wget \
+    ca-certificates \
+    tar \
+    bash
+
 EXPOSE 80
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisor.conf"]
 
 
 
