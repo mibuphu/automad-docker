@@ -16,7 +16,7 @@ I was searching for some lightweight CMS for my personal website and stumbled ac
 To run this docker image, run the following commands:
 
 1. docker pull bpminh/automad
-2. docker run -d -p 8000:80 bpmin/automad
+2. docker run -d -p 8000:80 bpminh/automad
 3. type "localhost:8000" in your browser address bar
 
 ## Credentials
