@@ -1,4 +1,6 @@
 FROM nginx:1.15
+LABEL MAINTAINER="Minh Bui <mibuphu@gmail.com>"
+
 ENV version 1.0.3
 
 RUN apt-get update \
