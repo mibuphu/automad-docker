@@ -33,5 +33,5 @@ Credits go to Marc Anton Dahmen, the awesome developer of Automad
 
 ## Contact
 Minh Bui
-[website](http://codingeering.com)
-[mail](mibuphu@gmail.com)
+- [website](http://codingeering.com)
+- [mail](mibuphu@gmail.com)
