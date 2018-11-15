@@ -22,26 +22,31 @@ RUN apt-get update \
     && wget https://bitbucket.org/marcantondahmen/automad/get/${version}.tar.gz \
     && tar -xzf ${version}.tar.gz -C /var/www/html/automad --strip-components 1 \
     && rm ${version}.tar.gz \
-    && chown -R www-data:www-data /var/www/html/automad \
+    && chown -R nginx:nginx /var/www/html/automad \
     && /bin/bash -c 'chmod -R 755 /var/www/html/automad/' \
     && mkdir -p /etc/nginx/sites-available \
     && mkdir -p /etc/nginx/sites-enabled \ 
-    && rm /etc/nginx/nginx.conf \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists
 
+COPY config/www.conf /etc/php/7.0/fpm/pool.d/www.conf
 COPY config/php.ini /etc/php/7.0/fpm/php.ini    
 COPY config/automad.conf /etc/nginx/sites-available/automad.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
+COPY config/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
+COPY config/accounts.php /var/www/html/automad/config
 
 RUN  ln -s /etc/nginx/sites-available/automad.conf /etc/nginx/sites-enabled/automad.conf \
-    && mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.source \
+    && mkdir -p /run/php \
+    && touch /run/php/php7.0-fpm.sock \
+    && touch /run/php/php7.0-fpm.pid \
+    && mkdir -p /var/log/supervisor \
     && apt-get purge -y wget \
-    ca-certificates
+    ca-certificates \
 
 EXPOSE 80
 
-CMD /etc/init.d/php7.0-fpm start && nginx -g "daemon off;"
+CMD ["/usr/bin/supervisord"]
 
 
 
