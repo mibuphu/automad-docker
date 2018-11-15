@@ -44,8 +44,8 @@ RUN  ln -s /etc/nginx/sites-available/automad.conf /etc/nginx/sites-enabled/auto
     && touch /run/php/php7.0-fpm.pid \
     && mkdir -p /var/log/supervisor \
     && apt-get purge -y wget \
-    ca-certificates \
-
+    ca-certificates
+    
 EXPOSE 80
 
 CMD ["/usr/bin/supervisord"]
