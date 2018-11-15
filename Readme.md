@@ -9,6 +9,12 @@ Automad is a flat content management system and template engine written in PHP. 
 This image was build as part of an exercise and learning experience in my journey to Docker. 
 I was searching for some lightweight CMS for my personal website and stumbled across different flatfile systems. Since most of the others had a docker images, it made testing on my local machine pretty easy. Sadly Automad didn't offer that, so here I am writing this image myself and sharing it with everyone. I hope it helps :)
 
+## Info
+The following tags should be used when pulling and running the docker image.
+Tags will be updated as soon as a new release is made public.
+- 1.0.3-debian
+- 1.0.3-alpine
+
 ## Requirements
 - docker
 
